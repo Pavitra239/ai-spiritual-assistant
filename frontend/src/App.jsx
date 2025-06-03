@@ -1,5 +1,4 @@
 import ChatBox from "./components/Chatbox";
-import DailyQuote from "./components/DailyQuote";
 
 function App() {
   return (

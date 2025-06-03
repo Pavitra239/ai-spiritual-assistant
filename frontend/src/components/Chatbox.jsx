@@ -6,11 +6,6 @@ const ChatBox = () => {
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
-  function highlightReferences(text) {
-    const regex = /(Gadhada|Sarangpur|Vartal|Loya|Panchala)\s+(I|II)?-?\d+/g;
-    return text.replace(regex, (match) => `**${match}**`);
-  }
-
   const askQuestion = async () => {
     if (!question.trim()) return;
     const userMessage = { role: "user", message: question };
@@ -19,19 +14,11 @@ const ChatBox = () => {
     setLoading(true);
 
     try {
-      const history = chat.map((msg) => ({
-        role: msg.role === "assistant" ? "assistant" : "user",
-        content: msg.message,
-      }));
-
-      history.push({ role: "user", content: question });
-
       const res = await fetch("http://localhost:8000/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: history }),
+        body: JSON.stringify({ question }),
       });
-
       const data = await res.json();
       const assistantMessage = { role: "assistant", message: data.answer };
       setChat((prev) => [...prev, assistantMessage]);
