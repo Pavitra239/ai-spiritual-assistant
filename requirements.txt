@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+chromadb
+sentence-transformers
+langchain-community
+langchain-ollama
+langchain_huggingface

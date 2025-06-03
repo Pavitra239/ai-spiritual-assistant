@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Virtual environments
+venv/
+env/
+
+# ChromaDB store
+chroma_store/
+
+# Data files
+data/raw/
+*.bin
+
+# VSCode settings
+.vscode/
+
+# Node.js (frontend)
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
